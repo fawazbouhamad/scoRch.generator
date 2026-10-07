@@ -1,0 +1,67 @@
+# SCORCH configuration
+# --------------------
+# The settings of the SCORCH study (Bouhamad and Najibi). This file, shipped
+# with the package, is the single source of the default settings: any setting
+# left out of a user's configuration takes its value from here.
+#
+# To change settings, write an editable copy in R:
+#     write_scorch_config("scorch_config.yaml")
+# set input: file, change any other value, save the file and run:
+#     run_scorch("scorch_config.yaml")
+# Lines starting with # are comments. Keep the indentation as it is.
+
+input:
+  file: null                  # your temperature data, in quotes: one NetCDF file, a list of files such as
+                              # ['era5_2000.nc', 'era5_2001.nc'], or a folder of .nc files (see README);
+                              # required unless run_scorch() is given `tmax`
+  format: auto                # era5: ERA5 2-m temperature (t2m), hourly or daily, one or several files;
+                              # daily_tmax: one file of daily maximum temperature on a regular grid;
+                              # auto: era5 when the file has a t2m variable, otherwise daily_tmax
+  variable: auto              # name of the temperature variable; auto = t2m (era5) or tmax (daily_tmax)
+  longitude: auto             # names of the longitude, latitude and time dimensions;
+  latitude: auto              # auto = longitude or lon, latitude or lat, valid_time or time
+  time: auto
+  units: auto                 # auto (read from the file), degC or K
+  era5_cell_size_deg: 1       # era5 only: daily maxima at the ERA5 grid points are averaged to cells of
+                              # this size (degrees), as in the study; null analyses the ERA5 grid itself
+
+output:
+  directory: scorch_output    # results folder; created if needed, existing results are overwritten
+
+period:
+  warm_season_months: [4, 5, 6, 7, 8, 9]   # calendar months analysed every year
+  start_date: null            # first date to analyse, e.g. "1980-01-01"; null = all dates in the file
+  end_date: null              # last date to analyse; null = all dates in the file
+
+heatwaves:                    # local heatwaves (Catalog 1)
+  threshold_percentile: 95    # a cell's threshold is this percentile of its daily Tmax
+  min_duration_days: 3        # a heatwave spans at least this many days ...
+  min_exceeding_days: 3       # ... and has at least this many days at or above the threshold
+
+regional_days:                # regionally extensive heatwave days (Catalog 2)
+  percentile: 97.5            # days whose heatwave-cell count reaches this percentile are selected
+
+clustering:                   # DBSCAN of the heatwave cells (Catalog 3); distances in grid-cell units
+  eps_values: [1, 1.5, 2, 2.5, 3, 3.5, 4]           # candidate neighbourhood distances
+  min_samples_values: [4, 5, 6, 7, 8, 9, 10, 11, 12] # candidate minimum neighbourhood sizes
+
+ellipses:                     # principal-component ellipses (Catalog 4)
+  scale_factor: 1.25          # semi-axis = scale_factor x principal standard deviation
+
+power_law:                    # power-law fit of the largest ellipse areas
+  bootstrap_repetitions: 5000 # study default 5000; 200 gives a quick first look, not results
+  seed_daily_maxima: 20261020 # random seeds of the two bootstraps
+  seed_event_maxima: 20261120
+
+lgcp:                         # log-Gaussian Cox process of the ellipse centroids
+  covariates: [lon, lat, mean_tmax, std_tmax]   # trend covariates, any subset of these four
+  raster_km: 25               # pixel size of the covariate images and study window (km)
+  window_margin_km: 80        # the window reaches this far (plus one pixel) beyond the cell centres (km);
+                              # chosen for 1-degree cells, use about 0.75 x the cell size for other grids
+
+figures:
+  representative_events:      # events shown in example plots; null = the longest event of the type
+    type_1: null              # a date inside the Type 1 event to show, e.g. "2002-07-31"
+    type_2: null              # a date inside the Type 2 event to show
+    type_3: null              # first shown day of one or two Type 3 events, e.g. ["2017-07-17", "1991-06-04"]
+    type_4: null              # first of the six shown days of the Type 4 event; null = the six days with most ellipses

@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use scoRch.generator, please cite the software and the study it implements."
+type: software
+title: "scoRch.generator: Spatiotemporal Classification of Regional Compound Heatwaves"
+version: 0.1.0
+date-released: "2026-10-06"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/fawazbouhamad/scoRch.generator"
+authors:
+  - family-names: Bouhamad
+    given-names: Fawaz
+    affiliation: "University of Florida"
+  - family-names: Najibi
+    given-names: Nasser
+    affiliation: "University of Florida"
+references:
+  - type: unpublished
+    title: "Understanding Compound Space-Time Typologies of Large-Scale Extreme Heatwaves"
+    authors:
+      - family-names: Bouhamad
+        given-names: Fawaz
+      - family-names: Najibi
+        given-names: Nasser
+    notes: "Manuscript in preparation"
+    url: "https://github.com/fawazbouhamad/compound-heatwave-typologies-SCORCH"

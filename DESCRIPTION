@@ -1,0 +1,36 @@
+Package: scoRch.generator
+Title: Spatiotemporal Classification of Regional Compound Heatwaves
+Version: 0.1.0
+Authors@R: c(
+    person("Fawaz", "Bouhamad", email = "fawawaz@hotmail.com",
+           role = c("aut", "cre")),
+    person("Nasser", "Najibi", role = "aut"))
+Description: Detects local heatwaves in gridded daily maximum temperature,
+    selects regionally extensive heatwave days, groups their heatwave cells
+    with DBSCAN, fits principal-component ellipses with temperature-weighted
+    centroids, classifies consecutive-day compound heatwave events into four
+    space-time types, and fits the power-law and log-Gaussian Cox process
+    models of the SCORCH method of Bouhamad and Najibi. One configuration
+    file and one function run the complete workflow and write the catalogs,
+    tables and descriptively named result plots.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 4.1.0)
+Imports:
+    dbscan,
+    graphics,
+    grDevices,
+    maps,
+    ncdf4,
+    spatstat.geom,
+    spatstat.model,
+    stats,
+    utils,
+    yaml
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/fawazbouhamad/scoRch.generator
+BugReports: https://github.com/fawazbouhamad/scoRch.generator/issues
+Config/roxygen2/version: 8.1.0

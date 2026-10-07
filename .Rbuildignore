@@ -1,0 +1,13 @@
+^LICENSE\.md$
+^README\.md$
+^NEWS\.md$
+^CONTRIBUTING\.md$
+^CITATION\.cff$
+^paper$
+^data-raw$
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$
+^scorch_output$
+^scorch_config\.yaml$
+^demo$

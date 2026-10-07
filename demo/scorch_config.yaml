@@ -1,0 +1,12 @@
+# SCORCH demonstration configuration
+# ----------------------------------
+# Only the settings that differ from the SCORCH configuration shipped with the
+# package are listed here. Every other setting, including all the scientific
+# parameters, keeps its SCORCH study value. To see and edit every setting,
+# write the complete configuration in R with write_scorch_config().
+
+input:
+  file: 'inst/extdata/example_tmax.nc'   # the example data, from the top folder of the repository
+
+output:
+  directory: scorch_demo_output          # created in the folder the demo is run from

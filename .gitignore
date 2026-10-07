@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+scorch_output/
+/scorch_config.yaml
+/doc/
+/Meta/
+Rplots.pdf
+*.tar.gz
+*.Rcheck/
+scorch_demo_output/
