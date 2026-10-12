@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+results/
+/scorch_config.yaml
+/doc/
+/Meta/
+Rplots.pdf
+*.tar.gz
+*.Rcheck/
+__pycache__/
+era5_cache/
+era5_tmax_1deg.nc

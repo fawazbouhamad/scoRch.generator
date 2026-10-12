@@ -1,0 +1,38 @@
+# Install the package and run the demonstration and the preprocessing example
+# on every change, then compare every workbook sheet, README.txt and the
+# figures with demo/expected_output.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+name: demo
+
+permissions: read-all
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: local::.
+          needs: check
+      - name: Run the demonstration
+        run: Rscript demo/run_demo.R
+      - name: Run the from-scratch processing example (CDS sample to 1-degree cells)
+        run: Rscript demo/cds_processing_example.R
+      - name: Compare the demo output with demo/expected_output
+        run: Rscript demo/compare_output.R
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-output
+          path: results

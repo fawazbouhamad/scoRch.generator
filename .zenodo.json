@@ -1,0 +1,19 @@
+{
+  "upload_type": "software",
+  "title": "scoRch.generator: Spatiotemporal Classification of Regional Compound Heatwaves (R package, version 1.0.0)",
+  "version": "1.0.0",
+  "language": "eng",
+  "license": "gpl-3.0-or-later",
+  "creators": [
+    {"name": "Bouhamad, Fawaz", "affiliation": "Department of Agricultural and Biological Engineering, University of Florida, Gainesville, Florida, USA", "orcid": "0009-0009-4138-6126"},
+    {"name": "Najibi, Nasser", "affiliation": "Department of Agricultural and Biological Engineering, University of Florida, Gainesville, Florida, USA", "orcid": "0000-0002-0515-7192"}
+  ],
+  "description": "<p>scoRch.generator is the R implementation of SCORCH (Spatiotemporal Classification of Regional Compound Heatwaves), the method of Bouhamad and Najibi for finding regionally extensive compound heatwaves in gridded daily maximum temperature: local heatwaves at every grid cell, regionally extensive days, DBSCAN clusters of heatwave cells, principal-component ellipses with temperature-weighted centroids, four compound-event types, and power-law and log-Gaussian Cox process models.</p><p>This record archives the GitHub release of the package. The study's processed input dataset is a separate Zenodo record (version 1.0.0, DOI 10.5281/zenodo.21717874), and the research record of the study (scripts, catalogs and figures) is the repository compound-heatwave-typologies-SCORCH.</p>",
+  "keywords": ["compound heatwaves", "heatwave typology", "spatiotemporal clustering", "DBSCAN",
+               "principal-component ellipses", "log-Gaussian Cox process", "ERA5 reanalysis", "R package"],
+  "related_identifiers": [
+    {"relation": "references", "identifier": "10.5281/zenodo.21717874", "resource_type": "dataset"},
+    {"relation": "references", "identifier": "https://github.com/fawazbouhamad/compound-heatwave-typologies-SCORCH", "resource_type": "software"}
+  ],
+  "notes": "Code is GPL-3.0-or-later. The demonstration dataset (inst/extdata/north_america_tmax.nc, ERA5-derived daily maximum temperature on 1,800 one-degree cells between 25-50 N and 130-58 W, from the ARCO-ERA5 archive) and the shipped CDS sample file is CC BY 4.0 for the authors' processing and contains modified Copernicus Climate Change Service information 2026 (ERA5); the workflow and typology artwork in man/figures are CC BY 4.0 by the authors."
+}

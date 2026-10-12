@@ -1,0 +1,25 @@
+citHeader("To cite scoRch.generator in publications, please cite the software and the study it implements:")
+
+bibentry(
+  bibtype  = "Manual",
+  title    = "scoRch.generator: Spatiotemporal Classification of Regional Compound Heatwaves",
+  author   = c(person("Fawaz", "Bouhamad"), person("Nasser", "Najibi")),
+  year     = "2026",
+  note     = "R package version 1.0.0",
+  url      = "https://github.com/fawazbouhamad/scoRch.generator",
+  textVersion = paste("Bouhamad, F., and Najibi, N. (2026).",
+                      "scoRch.generator: Spatiotemporal Classification of Regional Compound Heatwaves.",
+                      "R package version 1.0.0. https://github.com/fawazbouhamad/scoRch.generator")
+)
+
+bibentry(
+  bibtype  = "Unpublished",
+  title    = "Understanding Compound Space-Time Typologies of Large-Scale Extreme Heatwaves",
+  author   = c(person("Fawaz", "Bouhamad"), person("Nasser", "Najibi")),
+  year     = "2026",
+  note     = "Manuscript in preparation",
+  url      = "https://github.com/fawazbouhamad/compound-heatwave-typologies-SCORCH",
+  textVersion = paste("Bouhamad, F., and Najibi, N. (2026).",
+                      "Understanding Compound Space-Time Typologies of Large-Scale Extreme Heatwaves.",
+                      "Manuscript in preparation.")
+)

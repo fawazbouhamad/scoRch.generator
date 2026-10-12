@@ -1,0 +1,18 @@
+# SCORCH demonstration configuration
+# ----------------------------------
+# Only the settings that differ from the SCORCH configuration shipped with the
+# package are listed here. Every other setting, including all the scientific
+# parameters, keeps its SCORCH study value (5000 bootstrap repetitions, the
+# study's thresholds, DBSCAN candidates and ellipse scale). To see and edit
+# every setting, write the complete configuration in R with
+# write_scorch_config().
+
+input:
+  file: 'inst/extdata/north_america_tmax.nc'   # the demonstration data, from the top folder of the repository
+
+output:
+  directory: results                         # created in the folder the demo is run from
+
+figures:
+  representative_events:                     # the event traced in demo/run_demo.R is shown in its figure
+    type_3: ["2012-06-28", "2023-08-04"]   # first shown day of two Type 3 events: late June 2012 (traced below) and August 2023
